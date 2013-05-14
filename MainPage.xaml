@@ -37,9 +37,9 @@
          -->
 
         <!--Contrôle Pivot-->
-        <phone:Pivot Title="MON APPLICATION">
+        <phone:Pivot Title="UVWEB">
             <!--Élément un de tableau croisé dynamique-->
-            <phone:PivotItem Header="first">
+            <phone:PivotItem Header="newsfeed">
                 <!--Liste double trait avec habillage du texte-->
                 <phone:LongListSelector Margin="0,0,-12,0" ItemsSource="{Binding Items}">
                     <phone:LongListSelector.ItemTemplate>
@@ -54,14 +54,14 @@
             </phone:PivotItem>
 
             <!--Élément deux de tableau croisé dynamique-->
-            <phone:PivotItem Header="second">
+            <phone:PivotItem Header="liste des UVs">
                 <!--Liste double trait, aucun habillage du texte-->
                 <phone:LongListSelector Margin="0,0,-12,0" ItemsSource="{Binding Items}">
                     <phone:LongListSelector.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel Margin="0,0,0,17">
                                     <TextBlock Text="{Binding LineOne}" TextWrapping="NoWrap" Margin="12,0,0,0" Style="{StaticResource PhoneTextExtraLargeStyle}"/>
-                                    <TextBlock Text="{Binding LineThree}" TextWrapping="NoWrap" Margin="12,-6,0,0" Style="{StaticResource PhoneTextSubtleStyle}"/>
+                                    <TextBlock Text="{Binding LineTwo}" TextWrapping="NoWrap" Margin="12,-6,0,0" Style="{StaticResource PhoneTextSubtleStyle}"/>
                                 </StackPanel>
                             </DataTemplate>
                     </phone:LongListSelector.ItemTemplate>
