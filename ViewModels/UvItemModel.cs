@@ -10,7 +10,7 @@ using System.Windows.Media.Animation;
 
 namespace UVwebForWindowsPhone.ViewModels
 {
-    public class ItemViewModel : INotifyPropertyChanged
+    public class UvItemModel : INotifyPropertyChanged
     {
         private string _lineOne;
         /// <summary>
