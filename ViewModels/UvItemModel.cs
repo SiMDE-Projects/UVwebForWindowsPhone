@@ -14,7 +14,7 @@ namespace UVwebForWindowsPhone.ViewModels
     {
         private string _name;
         /// <summary>
-        /// Exemple de propriété ViewModel ; cette propriété est utilisée dans la vue pour afficher sa valeur à l'aide d'une liaison.
+        /// A simple UV item view model to be displayed in the UV list.
         /// </summary>
         /// <returns></returns>
         public string Name
@@ -33,44 +33,23 @@ namespace UVwebForWindowsPhone.ViewModels
             }
         }
 
-        private string _lineTwo;
+        private string _title;
         /// <summary>
         /// Exemple de propriété ViewModel ; cette propriété est utilisée dans la vue pour afficher sa valeur à l'aide d'une liaison.
         /// </summary>
         /// <returns></returns>
-        public string LineTwo
+        public string Title
         {
             get
             {
-                return _lineTwo;
+                return _title;
             }
             set
             {
-                if (value != _lineTwo)
+                if (value != _title)
                 {
-                    _lineTwo = value;
-                    NotifyPropertyChanged("LineTwo");
-                }
-            }
-        }
-
-        private string _lineThree;
-        /// <summary>
-        /// Exemple de propriété ViewModel ; cette propriété est utilisée dans la vue pour afficher sa valeur à l'aide d'une liaison.
-        /// </summary>
-        /// <returns></returns>
-        public string LineThree
-        {
-            get
-            {
-                return _lineThree;
-            }
-            set
-            {
-                if (value != _lineThree)
-                {
-                    _lineThree = value;
-                    NotifyPropertyChanged("LineThree");
+                    _title = value;
+                    NotifyPropertyChanged("Title");
                 }
             }
         }
