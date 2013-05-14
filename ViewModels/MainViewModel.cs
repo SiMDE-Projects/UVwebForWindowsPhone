@@ -61,12 +61,12 @@ namespace UVwebForWindowsPhone.ViewModels
         public void LoadData()
         {
             // Exemple de données ; remplacer par des données réelles
-            this.Items.Add(new UvItemModel() { LineOne = "MT23", LineTwo = "Algèbre linéaire", LineThree = "Facilisi faucibus habitant inceptos interdum lobortis nascetur pharetra placerat pulvinar sagittis senectus sociosqu" });
-            this.Items.Add(new UvItemModel() { LineOne = "LO21", LineTwo = "Programmation orientée objet", LineThree = "Suscipit torquent ultrices vehicula volutpat maecenas praesent accumsan bibendum dictumst eleifend facilisi faucibus" });
-            this.Items.Add(new UvItemModel() { LineOne = "MQ01", LineTwo = "Résistance des matériaux", LineThree = "Habitant inceptos interdum lobortis nascetur pharetra placerat pulvinar sagittis senectus sociosqu suscipit torquent" });
-            this.Items.Add(new UvItemModel() { LineOne = "NF16", LineTwo = "Algorithmique et structures de données", LineThree = "Ultrices vehicula volutpat maecenas praesent accumsan bibendum dictumst eleifend facilisi faucibus habitant inceptos" });
-            this.Items.Add(new UvItemModel() { LineOne = "NF17", LineTwo = "Conception de bases de données", LineThree = "Maecenas praesent accumsan bibendum dictumst eleifend facilisi faucibus habitant inceptos interdum lobortis nascetur" });
-            this.Items.Add(new UvItemModel() { LineOne = "IA04", LineTwo = "Systèmes multi-agents", LineThree = "Pharetra placerat pulvinar sagittis senectus sociosqu suscipit torquent ultrices vehicula volutpat maecenas praesent" });
+            this.Items.Add(new UvItemModel() { Name = "MT23", LineTwo = "Algèbre linéaire", LineThree = "Facilisi faucibus habitant inceptos interdum lobortis nascetur pharetra placerat pulvinar sagittis senectus sociosqu" });
+            this.Items.Add(new UvItemModel() { Name = "LO21", LineTwo = "Programmation orientée objet", LineThree = "Suscipit torquent ultrices vehicula volutpat maecenas praesent accumsan bibendum dictumst eleifend facilisi faucibus" });
+            this.Items.Add(new UvItemModel() { Name = "MQ01", LineTwo = "Résistance des matériaux", LineThree = "Habitant inceptos interdum lobortis nascetur pharetra placerat pulvinar sagittis senectus sociosqu suscipit torquent" });
+            this.Items.Add(new UvItemModel() { Name = "NF16", LineTwo = "Algorithmique et structures de données", LineThree = "Ultrices vehicula volutpat maecenas praesent accumsan bibendum dictumst eleifend facilisi faucibus habitant inceptos" });
+            this.Items.Add(new UvItemModel() { Name = "NF17", LineTwo = "Conception de bases de données", LineThree = "Maecenas praesent accumsan bibendum dictumst eleifend facilisi faucibus habitant inceptos interdum lobortis nascetur" });
+            this.Items.Add(new UvItemModel() { Name = "IA04", LineTwo = "Systèmes multi-agents", LineThree = "Pharetra placerat pulvinar sagittis senectus sociosqu suscipit torquent ultrices vehicula volutpat maecenas praesent" });
 
             this.IsDataLoaded = true;
         }

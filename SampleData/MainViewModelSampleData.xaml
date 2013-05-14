@@ -5,12 +5,12 @@
     SampleProperty="Valeur de propriété d'un texte d'exemple">
 
     <vm:MainViewModel.Items>
-        <vm:UvItem LineOne="MT23" LineTwo="Algèbre linéaire" LineThree="Maecenas praesent accumsan bibendum dictumst eleifend facilisi faucibus habitant inceptos interdum lobortis nascetur"/>
-        <vm:UvItem LineOne="LO21" LineTwo="Programmation orientée objet" LineThree="Pharetra placerat pulvinar sagittis senectus sociosqu suscipit torquent ultrices vehicula volutpat maecenas praesent"/>
-        <vm:UvItem LineOne="MQ01" LineTwo="Résistance des matériaux" LineThree="Accumsan bibendum dictumst eleifend facilisi faucibus habitant inceptos interdum lobortis nascetur pharetra placerat"/>
-        <vm:UvItem LineOne="NF16" LineTwo="Algorithmique et structures de données" LineThree="Pulvinar sagittis senectus sociosqu suscipit torquent ultrices vehicula volutpat maecenas praesent accumsan bibendum"/>
-        <vm:UvItem LineOne="NF17" LineTwo="Conception de bases de données" LineThree="Dictumst eleifend facilisi faucibus habitant inceptos interdum lobortis nascetur pharetra placerat pulvinar sagittis"/>
-        <vm:UvItem LineOne="IA04" LineTwo="Systèmes multi-agents" LineThree="Senectus sociosqu suscipit torquent ultrices vehicula volutpat maecenas praesent accumsan bibendum dictumst eleifend"/>
+        <vm:UvItemModel Name="MT23" Title="Algèbre linéaire"/>
+        <vm:UvItemModel Name="LO21" Title="Programmation orientée objet"/>
+        <vm:UvItemModel Name="MQ01" Title="Résistance des matériaux"/>
+        <vm:UvItemModel Name="NF16" Title="Algorithmique et structures de données"/>
+        <vm:UvItemModel Name="NF17" Title="Conception de bases de données"/>
+        <vm:UvItemModel Name="IA04" Title="Systèmes multi-agents"/>
     </vm:MainViewModel.Items>
 
 </vm:MainViewModel>

@@ -12,23 +12,23 @@ namespace UVwebForWindowsPhone.ViewModels
 {
     public class UvItemModel : INotifyPropertyChanged
     {
-        private string _lineOne;
+        private string _name;
         /// <summary>
         /// Exemple de propriété ViewModel ; cette propriété est utilisée dans la vue pour afficher sa valeur à l'aide d'une liaison.
         /// </summary>
         /// <returns></returns>
-        public string LineOne
+        public string Name
         {
             get
             {
-                return _lineOne;
+                return _name;
             }
             set
             {
-                if (value != _lineOne)
+                if (value != _name)
                 {
-                    _lineOne = value;
-                    NotifyPropertyChanged("LineOne");
+                    _name = value;
+                    NotifyPropertyChanged("Name");
                 }
             }
         }
