@@ -32,6 +32,20 @@ namespace UVwebForWindowsPhone.ViewModels
                 }
             }
         }
+        public string LetterCode
+        {
+            get
+            {
+                return _name.Substring(0, 2);
+            }
+        }
+        public string NumberCode
+        {
+            get
+            {
+                return _name.Substring(2, 2);
+            }
+        }
 
         private string _title;
         /// <summary>

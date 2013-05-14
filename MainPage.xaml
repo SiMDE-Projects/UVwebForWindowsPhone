@@ -13,6 +13,16 @@
     Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="PortraitOrLandscape"  Orientation="Portrait"
     shell:SystemTray.IsVisible="True">
+    <phone:PhoneApplicationPage.Resources>
+        <Style x:Key="UvTitleBase" BasedOn="{StaticResource PhoneTextBlockBase}" TargetType="TextBlock">
+            <Setter Property="FontFamily" Value="{StaticResource PhoneFontFamilySemiLight}"/>
+            <Setter Property="FontSize" Value="{StaticResource PhoneFontSizeExtraLarge}"/>
+            <Setter Property="Margin" Value="0 0 0 0" />
+        </Style>
+        <Style x:Key="UvTitleGreen" BasedOn="{StaticResource UvTitleBase}" TargetType="TextBlock">
+            <Setter Property="Foreground" Value="#ff73bbab"/>
+        </Style>
+    </phone:PhoneApplicationPage.Resources>
 
     <!--LayoutRoot est la grille racine où tout le contenu de la page est placé-->
     <Grid x:Name="LayoutRoot" Background="Transparent">
@@ -45,7 +55,10 @@
                     <phone:LongListSelector.ItemTemplate>
                         <DataTemplate>
                             <StackPanel Margin="0,0,0,17">
-                                <TextBlock Text="{Binding Name}" TextWrapping="Wrap" Style="{StaticResource PhoneTextExtraLargeStyle}"/>
+                                <StackPanel Orientation="Horizontal" Margin="12 0">
+                                    <TextBlock Text="{Binding LetterCode}" TextWrapping="Wrap" Style="{StaticResource UvTitleBase}"/>
+                                    <TextBlock Text="{Binding NumberCode}" TextWrapping="Wrap" Style="{StaticResource UvTitleGreen}"/>
+                                </StackPanel>
                                 <TextBlock Text="{Binding Title}" TextWrapping="Wrap" Margin="12,-6,12,0" Style="{StaticResource PhoneTextSubtleStyle}"/>
                             </StackPanel>
                         </DataTemplate>
@@ -58,12 +71,15 @@
                 <!--Liste double trait, aucun habillage du texte-->
                 <phone:LongListSelector Margin="0,0,-12,0" ItemsSource="{Binding Items}">
                     <phone:LongListSelector.ItemTemplate>
-                            <DataTemplate>
-                                <StackPanel Margin="0,0,0,17">
-                                    <TextBlock Text="{Binding Name}" TextWrapping="NoWrap" Margin="12,0,0,0" Style="{StaticResource PhoneTextExtraLargeStyle}"/>
-                                    <TextBlock Text="{Binding Title}" TextWrapping="NoWrap" Margin="12,-6,0,0" Style="{StaticResource PhoneTextSubtleStyle}"/>
+                        <DataTemplate>
+                            <StackPanel Margin="0,0,0,17">
+                                <StackPanel Orientation="Horizontal" Margin="12 0">
+                                    <TextBlock Text="{Binding LetterCode}" TextWrapping="Wrap" Style="{StaticResource UvTitleBase}"/>
+                                    <TextBlock Text="{Binding NumberCode}" TextWrapping="Wrap" Style="{StaticResource UvTitleGreen}"/>
                                 </StackPanel>
-                            </DataTemplate>
+                                <TextBlock Text="{Binding Title}" TextWrapping="Wrap" Margin="12,-6,12,0" Style="{StaticResource PhoneTextSubtleStyle}"/>
+                            </StackPanel>
+                        </DataTemplate>
                     </phone:LongListSelector.ItemTemplate>
                 </phone:LongListSelector>
             </phone:PivotItem>
