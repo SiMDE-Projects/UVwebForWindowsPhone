@@ -5,12 +5,12 @@
     SampleProperty="Valeur de propriété d'un texte d'exemple">
 
     <vm:MainViewModel.Items>
-        <vm:UvItemModel Name="MT23" Title="Algèbre linéaire"/>
-        <vm:UvItemModel Name="LO21" Title="Programmation orientée objet"/>
-        <vm:UvItemModel Name="MQ01" Title="Résistance des matériaux"/>
-        <vm:UvItemModel Name="NF16" Title="Algorithmique et structures de données"/>
-        <vm:UvItemModel Name="NF17" Title="Conception de bases de données"/>
-        <vm:UvItemModel Name="IA04" Title="Systèmes multi-agents"/>
+        <vm:UvItemViewModel Name="MT23" Title="Algèbre linéaire"/>
+        <vm:UvItemViewModel Name="LO21" Title="Programmation orientée objet"/>
+        <vm:UvItemViewModel Name="MQ01" Title="Résistance des matériaux"/>
+        <vm:UvItemViewModel Name="NF16" Title="Algorithmique et structures de données"/>
+        <vm:UvItemViewModel Name="NF17" Title="Conception de bases de données"/>
+        <vm:UvItemViewModel Name="IA04" Title="Systèmes multi-agents"/>
     </vm:MainViewModel.Items>
 
 </vm:MainViewModel>
