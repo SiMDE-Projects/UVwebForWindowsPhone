@@ -10,12 +10,18 @@ namespace UVwebForWindowsPhone.ViewModels
         public MainViewModel()
         {
             this.UvItems = new ObservableCollection<UvItemViewModel>();
+            this.NewsfeedEntries = new ObservableCollection<NewsfeedEntryViewModel>();
         }
 
         /// <summary>
-        /// Collection pour les objets ItemViewModel.
+        /// Collection for UvItemViewModels
         /// </summary>
         public ObservableCollection<UvItemViewModel> UvItems { get; private set; }
+
+        /// <summary>
+        /// Collection for NewsfeedEntryViewModels
+        /// </summary>
+        public ObservableCollection<NewsfeedEntryViewModel> NewsfeedEntries { get; private set; }
 
         private string _sampleProperty = "Sample Runtime Property Value";
         /// <summary>
@@ -79,6 +85,16 @@ namespace UVwebForWindowsPhone.ViewModels
             this.UvItems.Add(new UvItemViewModel() { Name = "NF16", Title = "Algorithmique et structures de données" });
             this.UvItems.Add(new UvItemViewModel() { Name = "NF17", Title = "Conception de bases de données" });
             this.UvItems.Add(new UvItemViewModel() { Name = "IA04", Title = "Systèmes multi-agents" });
+
+            this.NewsfeedEntries.Add(new NewsfeedEntryViewModel() { Author = "amasciul", Action = "a publié un nouveau commentaire", Date = "15 mai 2013", Comment = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." });
+            this.NewsfeedEntries.Add(new NewsfeedEntryViewModel() { Author = "tkeunebr", Action = "a publié un nouveau commentaire", Date = "22 avril 2013", Comment = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." });
+            this.NewsfeedEntries.Add(new NewsfeedEntryViewModel() { Author = "mboiteau", Action = "a publié un nouveau commentaire", Date = "3 avril 2013", Comment = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." });
+            this.NewsfeedEntries.Add(new NewsfeedEntryViewModel() { Author = "amasciul", Action = "a publié un nouveau commentaire", Date = "15 mai 2013", Comment = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." });
+            this.NewsfeedEntries.Add(new NewsfeedEntryViewModel() { Author = "tkeunebr", Action = "a publié un nouveau commentaire", Date = "22 avril 2013", Comment = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." });
+            this.NewsfeedEntries.Add(new NewsfeedEntryViewModel() { Author = "mboiteau", Action = "a publié un nouveau commentaire", Date = "3 avril 2013", Comment = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." });
+            this.NewsfeedEntries.Add(new NewsfeedEntryViewModel() { Author = "amasciul", Action = "a publié un nouveau commentaire", Date = "15 mai 2013", Comment = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." });
+            this.NewsfeedEntries.Add(new NewsfeedEntryViewModel() { Author = "tkeunebr", Action = "a publié un nouveau commentaire", Date = "22 avril 2013", Comment = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." });
+            this.NewsfeedEntries.Add(new NewsfeedEntryViewModel() { Author = "mboiteau", Action = "a publié un nouveau commentaire", Date = "3 avril 2013", Comment = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." });
 
             this.IsDataLoaded = true;
         }
