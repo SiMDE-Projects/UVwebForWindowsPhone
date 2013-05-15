@@ -34,6 +34,20 @@ namespace UVwebForWindowsPhone
             }
         }
 
+        private void LongListSelector_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            LongListSelector lls = sender as LongListSelector;
+            // If selected item is null, do nothing
+            if (lls.SelectedItem == null)
+                return;
+
+            // Navigate to the next page
+            NavigationService.Navigate(new Uri("/UvDetailPage.xaml", UriKind.Relative));
+
+            // Reset selected item to null
+            lls.SelectedItem = null;
+        }
+
         // Exemple de code pour la conception d'une ApplicationBar localisée
         //private void BuildLocalizedApplicationBar()
         //{
