@@ -47,9 +47,9 @@
          -->
 
         <!--Contrôle Pivot-->
-        <phone:Pivot Title="UVWEB">
+        <phone:Pivot Title="{Binding Path=LocalizedResources.ApplicationTitle, Source={StaticResource LocalizedStrings}}">
             <!--Élément un de tableau croisé dynamique-->
-            <phone:PivotItem Header="newsfeed">
+            <phone:PivotItem Header="{Binding Path=LocalizedResources.Newsfeed, Source={StaticResource LocalizedStrings}}">
                 <!--Liste double trait avec habillage du texte-->
                 <phone:LongListSelector Margin="0,0,-12,0" ItemsSource="{Binding Items}">
                     <phone:LongListSelector.ItemTemplate>
@@ -67,7 +67,7 @@
             </phone:PivotItem>
 
             <!--Élément deux de tableau croisé dynamique-->
-            <phone:PivotItem Header="liste des UVs">
+            <phone:PivotItem Header="{Binding Path=LocalizedResources.UvList, Source={StaticResource LocalizedStrings}}">
                 <!--Liste double trait, aucun habillage du texte-->
                 <phone:LongListSelector Margin="0,0,-12,0" ItemsSource="{Binding Items}">
                     <phone:LongListSelector.ItemTemplate>

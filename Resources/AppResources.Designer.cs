@@ -79,11 +79,20 @@ namespace UVwebForWindowsPhone.Resources {
         }
         
         /// <summary>
-        ///   Recherche une chaîne localisée semblable à UVweb.
+        ///   Recherche une chaîne localisée semblable à UVWEB.
         /// </summary>
         public static string ApplicationTitle {
             get {
                 return ResourceManager.GetString("ApplicationTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à activité.
+        /// </summary>
+        public static string Newsfeed {
+            get {
+                return ResourceManager.GetString("Newsfeed", resourceCulture);
             }
         }
         
@@ -111,6 +120,15 @@ namespace UVwebForWindowsPhone.Resources {
         public static string SampleProperty {
             get {
                 return ResourceManager.GetString("SampleProperty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une chaîne localisée semblable à liste des UVs.
+        /// </summary>
+        public static string UvList {
+            get {
+                return ResourceManager.GetString("UvList", resourceCulture);
             }
         }
     }
