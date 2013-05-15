@@ -67,6 +67,18 @@ namespace UVwebForWindowsPhone.ViewModels
             this.Items.Add(new UvItemViewModel() { Name = "NF16", Title = "Algorithmique et structures de données" });
             this.Items.Add(new UvItemViewModel() { Name = "NF17", Title = "Conception de bases de données" });
             this.Items.Add(new UvItemViewModel() { Name = "IA04", Title = "Systèmes multi-agents" });
+            this.Items.Add(new UvItemViewModel() { Name = "MT23", Title = "Algèbre linéaire" });
+            this.Items.Add(new UvItemViewModel() { Name = "LO21", Title = "Programmation orientée objet" });
+            this.Items.Add(new UvItemViewModel() { Name = "MQ01", Title = "Résistance des matériaux" });
+            this.Items.Add(new UvItemViewModel() { Name = "NF16", Title = "Algorithmique et structures de données" });
+            this.Items.Add(new UvItemViewModel() { Name = "NF17", Title = "Conception de bases de données" });
+            this.Items.Add(new UvItemViewModel() { Name = "IA04", Title = "Systèmes multi-agents" });
+            this.Items.Add(new UvItemViewModel() { Name = "MT23", Title = "Algèbre linéaire" });
+            this.Items.Add(new UvItemViewModel() { Name = "LO21", Title = "Programmation orientée objet" });
+            this.Items.Add(new UvItemViewModel() { Name = "MQ01", Title = "Résistance des matériaux" });
+            this.Items.Add(new UvItemViewModel() { Name = "NF16", Title = "Algorithmique et structures de données" });
+            this.Items.Add(new UvItemViewModel() { Name = "NF17", Title = "Conception de bases de données" });
+            this.Items.Add(new UvItemViewModel() { Name = "IA04", Title = "Systèmes multi-agents" });
 
             this.IsDataLoaded = true;
         }
