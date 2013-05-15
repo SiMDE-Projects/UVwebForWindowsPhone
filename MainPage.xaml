@@ -51,7 +51,7 @@
             <!--Élément un de tableau croisé dynamique-->
             <phone:PivotItem Header="{Binding Path=LocalizedResources.Newsfeed, Source={StaticResource LocalizedStrings}}">
                 <!--Liste double trait avec habillage du texte-->
-                <phone:LongListSelector Margin="0,0,-12,0" ItemsSource="{Binding Items}" SelectionChanged="LongListSelector_SelectionChanged">
+                <phone:LongListSelector Margin="0,0,-12,0" ItemsSource="{Binding UvItems}" SelectionChanged="LongListSelector_SelectionChanged">
                     <phone:LongListSelector.ItemTemplate>
                         <DataTemplate>
                             <StackPanel Margin="0,0,0,17">
@@ -69,7 +69,7 @@
             <!--Élément deux de tableau croisé dynamique-->
             <phone:PivotItem Header="{Binding Path=LocalizedResources.UvList, Source={StaticResource LocalizedStrings}}">
                 <!--Liste double trait, aucun habillage du texte-->
-                <phone:LongListSelector Margin="0,0,-12,0" ItemsSource="{Binding Items}">
+                <phone:LongListSelector Margin="0,0,-12,0" ItemsSource="{Binding UvItems}">
                     <phone:LongListSelector.ItemTemplate>
                         <DataTemplate>
                             <StackPanel Margin="0,0,0,17">

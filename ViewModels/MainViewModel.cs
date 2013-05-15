@@ -9,13 +9,13 @@ namespace UVwebForWindowsPhone.ViewModels
     {
         public MainViewModel()
         {
-            this.Items = new ObservableCollection<UvItemViewModel>();
+            this.UvItems = new ObservableCollection<UvItemViewModel>();
         }
 
         /// <summary>
         /// Collection pour les objets ItemViewModel.
         /// </summary>
-        public ObservableCollection<UvItemViewModel> Items { get; private set; }
+        public ObservableCollection<UvItemViewModel> UvItems { get; private set; }
 
         private string _sampleProperty = "Sample Runtime Property Value";
         /// <summary>
@@ -61,24 +61,24 @@ namespace UVwebForWindowsPhone.ViewModels
         public void LoadData()
         {
             // Exemple de données ; remplacer par des données réelles
-            this.Items.Add(new UvItemViewModel() { Name = "MT23", Title = "Algèbre linéaire"});
-            this.Items.Add(new UvItemViewModel() { Name = "LO21", Title = "Programmation orientée objet" });
-            this.Items.Add(new UvItemViewModel() { Name = "MQ01", Title = "Résistance des matériaux" });
-            this.Items.Add(new UvItemViewModel() { Name = "NF16", Title = "Algorithmique et structures de données" });
-            this.Items.Add(new UvItemViewModel() { Name = "NF17", Title = "Conception de bases de données" });
-            this.Items.Add(new UvItemViewModel() { Name = "IA04", Title = "Systèmes multi-agents" });
-            this.Items.Add(new UvItemViewModel() { Name = "MT23", Title = "Algèbre linéaire" });
-            this.Items.Add(new UvItemViewModel() { Name = "LO21", Title = "Programmation orientée objet" });
-            this.Items.Add(new UvItemViewModel() { Name = "MQ01", Title = "Résistance des matériaux" });
-            this.Items.Add(new UvItemViewModel() { Name = "NF16", Title = "Algorithmique et structures de données" });
-            this.Items.Add(new UvItemViewModel() { Name = "NF17", Title = "Conception de bases de données" });
-            this.Items.Add(new UvItemViewModel() { Name = "IA04", Title = "Systèmes multi-agents" });
-            this.Items.Add(new UvItemViewModel() { Name = "MT23", Title = "Algèbre linéaire" });
-            this.Items.Add(new UvItemViewModel() { Name = "LO21", Title = "Programmation orientée objet" });
-            this.Items.Add(new UvItemViewModel() { Name = "MQ01", Title = "Résistance des matériaux" });
-            this.Items.Add(new UvItemViewModel() { Name = "NF16", Title = "Algorithmique et structures de données" });
-            this.Items.Add(new UvItemViewModel() { Name = "NF17", Title = "Conception de bases de données" });
-            this.Items.Add(new UvItemViewModel() { Name = "IA04", Title = "Systèmes multi-agents" });
+            this.UvItems.Add(new UvItemViewModel() { Name = "MT23", Title = "Algèbre linéaire"});
+            this.UvItems.Add(new UvItemViewModel() { Name = "LO21", Title = "Programmation orientée objet" });
+            this.UvItems.Add(new UvItemViewModel() { Name = "MQ01", Title = "Résistance des matériaux" });
+            this.UvItems.Add(new UvItemViewModel() { Name = "NF16", Title = "Algorithmique et structures de données" });
+            this.UvItems.Add(new UvItemViewModel() { Name = "NF17", Title = "Conception de bases de données" });
+            this.UvItems.Add(new UvItemViewModel() { Name = "IA04", Title = "Systèmes multi-agents" });
+            this.UvItems.Add(new UvItemViewModel() { Name = "MT23", Title = "Algèbre linéaire" });
+            this.UvItems.Add(new UvItemViewModel() { Name = "LO21", Title = "Programmation orientée objet" });
+            this.UvItems.Add(new UvItemViewModel() { Name = "MQ01", Title = "Résistance des matériaux" });
+            this.UvItems.Add(new UvItemViewModel() { Name = "NF16", Title = "Algorithmique et structures de données" });
+            this.UvItems.Add(new UvItemViewModel() { Name = "NF17", Title = "Conception de bases de données" });
+            this.UvItems.Add(new UvItemViewModel() { Name = "IA04", Title = "Systèmes multi-agents" });
+            this.UvItems.Add(new UvItemViewModel() { Name = "MT23", Title = "Algèbre linéaire" });
+            this.UvItems.Add(new UvItemViewModel() { Name = "LO21", Title = "Programmation orientée objet" });
+            this.UvItems.Add(new UvItemViewModel() { Name = "MQ01", Title = "Résistance des matériaux" });
+            this.UvItems.Add(new UvItemViewModel() { Name = "NF16", Title = "Algorithmique et structures de données" });
+            this.UvItems.Add(new UvItemViewModel() { Name = "NF17", Title = "Conception de bases de données" });
+            this.UvItems.Add(new UvItemViewModel() { Name = "IA04", Title = "Systèmes multi-agents" });
 
             this.IsDataLoaded = true;
         }
