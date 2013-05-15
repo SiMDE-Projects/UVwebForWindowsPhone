@@ -22,6 +22,19 @@
         <Style x:Key="UvTitleGreen" BasedOn="{StaticResource UvTitleBase}" TargetType="TextBlock">
             <Setter Property="Foreground" Value="#ff73bbab"/>
         </Style>
+        <Style x:Key="EntryAuthor" BasedOn="{StaticResource PhoneTextBlockBase}" TargetType="TextBlock">
+            <Setter Property="FontFamily" Value="{StaticResource PhoneFontFamilySemiLight}"/>
+            <Setter Property="FontSize" Value="{StaticResource PhoneFontSizeLarge}"/>
+            <Setter Property="Margin" Value="0 0 0 0" />
+            <Setter Property="Foreground" Value="#ff73bbab"/>
+        </Style>
+        <Style x:Key="EntryComment" TargetType="TextBlock">
+            <Setter Property="FontFamily" Value="{StaticResource PhoneFontFamilySemiLight}"/>
+            <Setter Property="FontSize" Value="{StaticResource PhoneFontSizeSmall}"/>
+            <Setter Property="VerticalAlignment" Value="Bottom" />
+            <Setter Property="Margin" Value="6 0 0 3" />
+            <Setter Property="Width" Value="Auto" />
+        </Style>
     </phone:PhoneApplicationPage.Resources>
 
     <!--LayoutRoot est la grille racine où tout le contenu de la page est placé-->
@@ -48,25 +61,7 @@
 
         <!--Contrôle Pivot-->
         <phone:Pivot Title="{Binding Path=LocalizedResources.ApplicationTitle, Source={StaticResource LocalizedStrings}}">
-            <!--Élément un de tableau croisé dynamique-->
-            <phone:PivotItem Header="{Binding Path=LocalizedResources.Newsfeed, Source={StaticResource LocalizedStrings}}">
-                <!--Liste double trait avec habillage du texte-->
-                <phone:LongListSelector Margin="0,0,-12,0" ItemsSource="{Binding UvItems}" SelectionChanged="LongListSelector_SelectionChanged">
-                    <phone:LongListSelector.ItemTemplate>
-                        <DataTemplate>
-                            <StackPanel Margin="0,0,0,17">
-                                <StackPanel Orientation="Horizontal" Margin="12 0">
-                                    <TextBlock Text="{Binding LetterCode}" TextWrapping="Wrap" Style="{StaticResource UvTitleBase}"/>
-                                    <TextBlock Text="{Binding NumberCode}" TextWrapping="Wrap" Style="{StaticResource UvTitleGreen}"/>
-                                </StackPanel>
-                                <TextBlock Text="{Binding Title}" TextWrapping="Wrap" Margin="12,-6,12,0" Style="{StaticResource PhoneTextSubtleStyle}"/>
-                            </StackPanel>
-                        </DataTemplate>
-                    </phone:LongListSelector.ItemTemplate>
-                </phone:LongListSelector>
-            </phone:PivotItem>
-
-            <!--Élément deux de tableau croisé dynamique-->
+            
             <phone:PivotItem Header="{Binding Path=LocalizedResources.UvList, Source={StaticResource LocalizedStrings}}">
                 <!--Liste double trait, aucun habillage du texte-->
                 <phone:LongListSelector Margin="0,0,-12,0" ItemsSource="{Binding UvItems}">
@@ -83,6 +78,24 @@
                     </phone:LongListSelector.ItemTemplate>
                 </phone:LongListSelector>
             </phone:PivotItem>
+
+            <phone:PivotItem Header="{Binding Path=LocalizedResources.Newsfeed, Source={StaticResource LocalizedStrings}}">
+                <!--Liste double trait avec habillage du texte-->
+                <phone:LongListSelector Margin="0,0,-12,0" ItemsSource="{Binding NewsfeedEntries}" SelectionChanged="LongListSelector_SelectionChanged">
+                    <phone:LongListSelector.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Margin="0,0,0,17">
+                                <StackPanel Orientation="Horizontal" Margin="12 0">
+                                    <TextBlock Text="{Binding Author}" TextWrapping="Wrap" Style="{StaticResource EntryAuthor}"/>
+                                    <TextBlock Text="{Binding Action}" TextWrapping="Wrap" Style="{StaticResource EntryComment}"/>
+                                </StackPanel>
+                                <TextBlock Text="{Binding Date}" TextWrapping="Wrap" Margin="12,-6,12,0" Style="{StaticResource PhoneTextSubtleStyle}"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </phone:LongListSelector.ItemTemplate>
+                </phone:LongListSelector>
+            </phone:PivotItem>
+            
         </phone:Pivot>
 
         <!--Supprimez les commentaires pour voir une grille d'alignement qui vous aidera à vous assurer que vos contrôles sont
