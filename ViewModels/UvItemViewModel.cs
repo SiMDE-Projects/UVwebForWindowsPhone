@@ -48,10 +48,6 @@ namespace UVwebForWindowsPhone.ViewModels
         }
 
         private string _title;
-        /// <summary>
-        /// Exemple de propriété ViewModel ; cette propriété est utilisée dans la vue pour afficher sa valeur à l'aide d'une liaison.
-        /// </summary>
-        /// <returns></returns>
         public string Title
         {
             get
