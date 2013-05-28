@@ -13,6 +13,7 @@ namespace UVwebForWindowsPhone.ViewModels
     public class MainViewModel : INotifyPropertyChanged
     {
         private static string _uvlisturi = "http://masciulli.fr/uvweb/uvlist.json";
+        private static string _newsfeeduri = http://thomaskeunebroek.fr/newsfeed.json;
 
         public MainViewModel()
         {
@@ -70,26 +71,6 @@ namespace UVwebForWindowsPhone.ViewModels
 
         public void LoadData()
         {
-            // Exemple de données ; remplacer par des données réelles
-            //this.UvItems.Add(new UvItemViewModel() { Name = "MT23", Title = "Algèbre linéaire"});
-            //this.UvItems.Add(new UvItemViewModel() { Name = "LO21", Title = "Programmation orientée objet" });
-            //this.UvItems.Add(new UvItemViewModel() { Name = "MQ01", Title = "Résistance des matériaux" });
-            //this.UvItems.Add(new UvItemViewModel() { Name = "NF16", Title = "Algorithmique et structures de données" });
-            //this.UvItems.Add(new UvItemViewModel() { Name = "NF17", Title = "Conception de bases de données" });
-            //this.UvItems.Add(new UvItemViewModel() { Name = "IA04", Title = "Systèmes multi-agents" });
-            //this.UvItems.Add(new UvItemViewModel() { Name = "MT23", Title = "Algèbre linéaire" });
-            //this.UvItems.Add(new UvItemViewModel() { Name = "LO21", Title = "Programmation orientée objet" });
-            //this.UvItems.Add(new UvItemViewModel() { Name = "MQ01", Title = "Résistance des matériaux" });
-            //this.UvItems.Add(new UvItemViewModel() { Name = "NF16", Title = "Algorithmique et structures de données" });
-            //this.UvItems.Add(new UvItemViewModel() { Name = "NF17", Title = "Conception de bases de données" });
-            //this.UvItems.Add(new UvItemViewModel() { Name = "IA04", Title = "Systèmes multi-agents" });
-            //this.UvItems.Add(new UvItemViewModel() { Name = "MT23", Title = "Algèbre linéaire" });
-            //this.UvItems.Add(new UvItemViewModel() { Name = "LO21", Title = "Programmation orientée objet" });
-            //this.UvItems.Add(new UvItemViewModel() { Name = "MQ01", Title = "Résistance des matériaux" });
-            //this.UvItems.Add(new UvItemViewModel() { Name = "NF16", Title = "Algorithmique et structures de données" });
-            //this.UvItems.Add(new UvItemViewModel() { Name = "NF17", Title = "Conception de bases de données" });
-            //this.UvItems.Add(new UvItemViewModel() { Name = "IA04", Title = "Systèmes multi-agents" });
-
             //this.NewsfeedEntries.Add(new NewsfeedEntryViewModel() { Author = "amasciul", Action = "a publié un nouveau commentaire", Date = "15 mai 2013", Comment = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." });
             //this.NewsfeedEntries.Add(new NewsfeedEntryViewModel() { Author = "tkeunebr", Action = "a publié un nouveau commentaire", Date = "22 avril 2013", Comment = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." });
             //this.NewsfeedEntries.Add(new NewsfeedEntryViewModel() { Author = "mboiteau", Action = "a publié un nouveau commentaire", Date = "3 avril 2013", Comment = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." });
@@ -123,13 +104,15 @@ namespace UVwebForWindowsPhone.ViewModels
                 {
                     WebResponse response = request.EndGetResponse(result);
                     StreamReader reader = new StreamReader(response.GetResponseStream());
-                    string text = reader.ReadToEnd();
-                    Debug.WriteLine(text);
+                    string json = reader.ReadToEnd();
+
+                    this.UvItems = JsonConvert.DeserializeObject<ObservableCollection<UvItemViewModel>>(json);
+                    
                     this.IsDataLoaded = true;
                 }
                 catch (WebException e)
                 {
-                    Debug.WriteLine("Error during uv lsit loading");
+                    Debug.WriteLine("Error during uv list loading");
                 }
             }
         }
