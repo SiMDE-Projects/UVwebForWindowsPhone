@@ -1,12 +1,19 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Diagnostics;
+using System.IO;
+using System.Net;
+using System.Threading.Tasks;
 using UVwebForWindowsPhone.Resources;
 
 namespace UVwebForWindowsPhone.ViewModels
 {
     public class MainViewModel : INotifyPropertyChanged
     {
+        private static string _uvlisturi = "http://masciulli.fr/uvweb/uvlist.json";
+
         public MainViewModel()
         {
             this.UvItems = new ObservableCollection<UvItemViewModel>();
@@ -61,42 +68,40 @@ namespace UVwebForWindowsPhone.ViewModels
             private set;
         }
 
-        /// <summary>
-        /// Crée et ajoute quelques objets ItemViewModel dans la collection Items.
-        /// </summary>
         public void LoadData()
         {
             // Exemple de données ; remplacer par des données réelles
-            this.UvItems.Add(new UvItemViewModel() { Name = "MT23", Title = "Algèbre linéaire"});
-            this.UvItems.Add(new UvItemViewModel() { Name = "LO21", Title = "Programmation orientée objet" });
-            this.UvItems.Add(new UvItemViewModel() { Name = "MQ01", Title = "Résistance des matériaux" });
-            this.UvItems.Add(new UvItemViewModel() { Name = "NF16", Title = "Algorithmique et structures de données" });
-            this.UvItems.Add(new UvItemViewModel() { Name = "NF17", Title = "Conception de bases de données" });
-            this.UvItems.Add(new UvItemViewModel() { Name = "IA04", Title = "Systèmes multi-agents" });
-            this.UvItems.Add(new UvItemViewModel() { Name = "MT23", Title = "Algèbre linéaire" });
-            this.UvItems.Add(new UvItemViewModel() { Name = "LO21", Title = "Programmation orientée objet" });
-            this.UvItems.Add(new UvItemViewModel() { Name = "MQ01", Title = "Résistance des matériaux" });
-            this.UvItems.Add(new UvItemViewModel() { Name = "NF16", Title = "Algorithmique et structures de données" });
-            this.UvItems.Add(new UvItemViewModel() { Name = "NF17", Title = "Conception de bases de données" });
-            this.UvItems.Add(new UvItemViewModel() { Name = "IA04", Title = "Systèmes multi-agents" });
-            this.UvItems.Add(new UvItemViewModel() { Name = "MT23", Title = "Algèbre linéaire" });
-            this.UvItems.Add(new UvItemViewModel() { Name = "LO21", Title = "Programmation orientée objet" });
-            this.UvItems.Add(new UvItemViewModel() { Name = "MQ01", Title = "Résistance des matériaux" });
-            this.UvItems.Add(new UvItemViewModel() { Name = "NF16", Title = "Algorithmique et structures de données" });
-            this.UvItems.Add(new UvItemViewModel() { Name = "NF17", Title = "Conception de bases de données" });
-            this.UvItems.Add(new UvItemViewModel() { Name = "IA04", Title = "Systèmes multi-agents" });
+            //this.UvItems.Add(new UvItemViewModel() { Name = "MT23", Title = "Algèbre linéaire"});
+            //this.UvItems.Add(new UvItemViewModel() { Name = "LO21", Title = "Programmation orientée objet" });
+            //this.UvItems.Add(new UvItemViewModel() { Name = "MQ01", Title = "Résistance des matériaux" });
+            //this.UvItems.Add(new UvItemViewModel() { Name = "NF16", Title = "Algorithmique et structures de données" });
+            //this.UvItems.Add(new UvItemViewModel() { Name = "NF17", Title = "Conception de bases de données" });
+            //this.UvItems.Add(new UvItemViewModel() { Name = "IA04", Title = "Systèmes multi-agents" });
+            //this.UvItems.Add(new UvItemViewModel() { Name = "MT23", Title = "Algèbre linéaire" });
+            //this.UvItems.Add(new UvItemViewModel() { Name = "LO21", Title = "Programmation orientée objet" });
+            //this.UvItems.Add(new UvItemViewModel() { Name = "MQ01", Title = "Résistance des matériaux" });
+            //this.UvItems.Add(new UvItemViewModel() { Name = "NF16", Title = "Algorithmique et structures de données" });
+            //this.UvItems.Add(new UvItemViewModel() { Name = "NF17", Title = "Conception de bases de données" });
+            //this.UvItems.Add(new UvItemViewModel() { Name = "IA04", Title = "Systèmes multi-agents" });
+            //this.UvItems.Add(new UvItemViewModel() { Name = "MT23", Title = "Algèbre linéaire" });
+            //this.UvItems.Add(new UvItemViewModel() { Name = "LO21", Title = "Programmation orientée objet" });
+            //this.UvItems.Add(new UvItemViewModel() { Name = "MQ01", Title = "Résistance des matériaux" });
+            //this.UvItems.Add(new UvItemViewModel() { Name = "NF16", Title = "Algorithmique et structures de données" });
+            //this.UvItems.Add(new UvItemViewModel() { Name = "NF17", Title = "Conception de bases de données" });
+            //this.UvItems.Add(new UvItemViewModel() { Name = "IA04", Title = "Systèmes multi-agents" });
 
-            this.NewsfeedEntries.Add(new NewsfeedEntryViewModel() { Author = "amasciul", Action = "a publié un nouveau commentaire", Date = "15 mai 2013", Comment = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." });
-            this.NewsfeedEntries.Add(new NewsfeedEntryViewModel() { Author = "tkeunebr", Action = "a publié un nouveau commentaire", Date = "22 avril 2013", Comment = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." });
-            this.NewsfeedEntries.Add(new NewsfeedEntryViewModel() { Author = "mboiteau", Action = "a publié un nouveau commentaire", Date = "3 avril 2013", Comment = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." });
-            this.NewsfeedEntries.Add(new NewsfeedEntryViewModel() { Author = "amasciul", Action = "a publié un nouveau commentaire", Date = "15 mai 2013", Comment = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." });
-            this.NewsfeedEntries.Add(new NewsfeedEntryViewModel() { Author = "tkeunebr", Action = "a publié un nouveau commentaire", Date = "22 avril 2013", Comment = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." });
-            this.NewsfeedEntries.Add(new NewsfeedEntryViewModel() { Author = "mboiteau", Action = "a publié un nouveau commentaire", Date = "3 avril 2013", Comment = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." });
-            this.NewsfeedEntries.Add(new NewsfeedEntryViewModel() { Author = "amasciul", Action = "a publié un nouveau commentaire", Date = "15 mai 2013", Comment = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." });
-            this.NewsfeedEntries.Add(new NewsfeedEntryViewModel() { Author = "tkeunebr", Action = "a publié un nouveau commentaire", Date = "22 avril 2013", Comment = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." });
-            this.NewsfeedEntries.Add(new NewsfeedEntryViewModel() { Author = "mboiteau", Action = "a publié un nouveau commentaire", Date = "3 avril 2013", Comment = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." });
+            //this.NewsfeedEntries.Add(new NewsfeedEntryViewModel() { Author = "amasciul", Action = "a publié un nouveau commentaire", Date = "15 mai 2013", Comment = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." });
+            //this.NewsfeedEntries.Add(new NewsfeedEntryViewModel() { Author = "tkeunebr", Action = "a publié un nouveau commentaire", Date = "22 avril 2013", Comment = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." });
+            //this.NewsfeedEntries.Add(new NewsfeedEntryViewModel() { Author = "mboiteau", Action = "a publié un nouveau commentaire", Date = "3 avril 2013", Comment = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." });
+            //this.NewsfeedEntries.Add(new NewsfeedEntryViewModel() { Author = "amasciul", Action = "a publié un nouveau commentaire", Date = "15 mai 2013", Comment = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." });
+            //this.NewsfeedEntries.Add(new NewsfeedEntryViewModel() { Author = "tkeunebr", Action = "a publié un nouveau commentaire", Date = "22 avril 2013", Comment = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." });
+            //this.NewsfeedEntries.Add(new NewsfeedEntryViewModel() { Author = "mboiteau", Action = "a publié un nouveau commentaire", Date = "3 avril 2013", Comment = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." });
+            //this.NewsfeedEntries.Add(new NewsfeedEntryViewModel() { Author = "amasciul", Action = "a publié un nouveau commentaire", Date = "15 mai 2013", Comment = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." });
+            //this.NewsfeedEntries.Add(new NewsfeedEntryViewModel() { Author = "tkeunebr", Action = "a publié un nouveau commentaire", Date = "22 avril 2013", Comment = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." });
+            //this.NewsfeedEntries.Add(new NewsfeedEntryViewModel() { Author = "mboiteau", Action = "a publié un nouveau commentaire", Date = "3 avril 2013", Comment = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." });
 
-            this.IsDataLoaded = true;
+            HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(_uvlisturi);
+            request.BeginGetResponse(GetUvListCallback, request);
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -108,5 +113,26 @@ namespace UVwebForWindowsPhone.ViewModels
                 handler(this, new PropertyChangedEventArgs(propertyName));
             }
         }
+
+        private void GetUvListCallback(IAsyncResult result)
+        {
+            HttpWebRequest request = result.AsyncState as HttpWebRequest;
+            if (request != null)
+            {
+                try
+                {
+                    WebResponse response = request.EndGetResponse(result);
+                    StreamReader reader = new StreamReader(response.GetResponseStream());
+                    string text = reader.ReadToEnd();
+                    Debug.WriteLine(text);
+                    this.IsDataLoaded = true;
+                }
+                catch (WebException e)
+                {
+                    Debug.WriteLine("Error during uv lsit loading");
+                }
+            }
+        }
+
     }
 }
