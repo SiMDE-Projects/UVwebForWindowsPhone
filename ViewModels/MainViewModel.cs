@@ -13,7 +13,7 @@ namespace UVwebForWindowsPhone.ViewModels
     public class MainViewModel : INotifyPropertyChanged
     {
         private static string _uvlisturi = "http://masciulli.fr/uvweb/uvlist.json";
-        private static string _newsfeeduri = http://thomaskeunebroek.fr/newsfeed.json;
+        private static string _newsfeeduri = "http://thomaskeunebroek.fr/newsfeed.json";
 
         public MainViewModel()
         {
